@@ -1,0 +1,34 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+
+ /// Container's maximum width
+ $max-width: 100em !default;
+
+ // Full width
+
+ .container-fluid {
+   @include clearfix;
+   margin: 0 auto;
+   text-align: center;
+   width: 100%;
+ }
+
+ // Fixed width(breakpoints)
+
+ .container {
+   @include clearfix;
+   margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+   text-align: center;
+   width: 90%;
+	max-width: $max-width;
+ }

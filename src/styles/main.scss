@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/******* Base *******\
+
+// Mixins /* Fonctions /* Variables */
+// Site-settings /* Options du site(couleurs, polices ..) */
+// Helpers /* Classes génériques */
+
+@import "base/functions";
+@import "base/mixins";
+@import "base/variables";
+@import "base/helpers";
+@import "base/global";
+@import "base/fonts";
+
+
+/******* Modules *******\
+
+// Boutons
+// Icônes
+// Animations
+// Tagcloud
+// + des modules par défaut et customisés de Fraweworks (Bootstrap, Foundation)
+// Non-Modular
+
+// Organisation /* Tous le css non réutilisable */
+
+@import "components/buttons";
+@import "components/form";
+
+/******* Layout *******\
+
+// Header
+// Footer
+// Nav
+// Wrapper /* Conteneur du site */
+// Cols /* Colonnes modulables */
+
+// @import "layouts/flexbox_grid/flexbox";
+@import "layouts/footer";
+@import "layouts/header";
+@import "layouts/main";
+@import "layouts/nav";
+@import "layouts/page-layout";
+@import "layouts/sidebar";
+
+
+/******* Pages *******\
+
+
+
+
+/******* Vendors *******\
+
+// Normalize /* Même rendu dans les différents navigateurs */
+// Font-awesome /* Icones
+
+@import "vendors/normalize";
+@import "vendors/font-awesome/scss/fontawesome";
+@import "vendors/font-awesome/scss/solid";
+@import "vendors/font-awesome/scss/regular";
+@import "vendors/font-awesome/scss/brands";
+@import "vendors/font-awesome/scss/v4-shims";

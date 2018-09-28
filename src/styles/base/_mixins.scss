@@ -1,0 +1,303 @@
+// -----------------------------------------------------------------------------
+// Place your mixins/placeholders here
+// -----------------------------------------------------------------------------Place your mixins/placeholders here
+
+/**
+ * Clear inner floats
+ **/
+
+ @mixin clearfix {
+   &:after {
+	  content: '';
+	  display: table;
+     clear: both;
+   }
+}
+
+// exemple :
+// .cf {
+//   @include clearfix;
+// }
+
+// Note : https://la-cascade.io/sass-mixin-ou-placeholder/
+// Mixins if there are some variables to it, if not prefer use of placeholder
+
+@mixin placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+// exemple :
+// input,
+// textarea {
+//     @include placeholder {
+//         color: $grey;
+//     }
+// }
+
+/**
+* For retina screens
+**/
+
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-moz-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3 / 2),
+	only screen and (min-device-pixel-ratio: 1.5),
+	only screen and (min-resolution: 1.5dppx) {
+		@content;
+	}
+}
+
+//exemple :
+// .logo {
+// background-image: url("img/logo.png");
+//   @include retina("img/logo@2x.png", 100px, 21px);
+// }
+
+/**
+* Before and After
+**/
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// exemple :
+// div::after {
+//     @include pseudo;
+//     top: -1rem; left: -1rem;
+//     width: 1rem; height: 1rem;
+// }
+
+/**
+* For creating scalable elements
+**/
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+// exemple
+// div {
+//     @include responsive-ratio(16,9);
+// }
+
+/**
+* Hide visually and from screenreaders, but maintain layout
+**/
+
+@mixin invisible {
+	visibility: hidden;
+}
+
+/**
+* Helper to size an element
+**/
+
+/// @author Hugo Giraudel
+/// @param {Length} $width
+/// @param {Length} $height
+
+// give dimensions to a box.
+@mixin box($width, $height: $width) {
+  height: $height;
+  width:  $width;
+}
+
+// exemple :
+//
+// .square {
+//   @include box(50px);
+// }
+//
+// .rectangle {
+//   @include box(100px, 50px);
+// }
+
+/**
+* Font import
+**/
+
+/// Given the location of a webfont, will generate a font-face declaration with multiple file formats.
+/// @access public
+/// @param {String} $font-name - Font family name
+/// @param {String} $file-name - File name (no extension)
+/// @param {String | Number} $weight [normal] - Font weight
+/// @param {String} $style [normal] - Font style
+/// @example scss - Usage
+///   @include font-face('gotham', '/fonts/gotham');
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal, $exts: eot woff2 woff ttf svg) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+
+//// Responsive
+/// Mixin to manage responsive breakpoints
+/// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// Usage : @include responsive('tablet') { ... }
+
+@mixin responsive($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "@mixin responsive($breakpoints) > Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Default mixins  thanks to Andy Field
+// https://gist.github.com/fieldoffice
+
+
+/**
+* Transform mixin
+**/
+
+@mixin transform($property) {
+	transform: $property;
+}
+
+// Animations
+
+@mixin transition($property, $time, $method) {
+	transition: $property $time $method;
+}
+
+// exemple :
+//
+// div {
+//     @include transition(margin, 1s, ease-in-out);
+// }
+
+// Rotate
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin ($origin) {
+	transform-origin: $origin;
+}
+
+/**
+* Centering a block
+**/
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// exemple :
+//
+// .wrapper {
+//   @include center-block;
+// }
+
+/**
+* Center Align
+**/
+
+@mixin center {
+   position: absolute;
+   top:50%;
+   left:50%;
+   transform: translate(-50%, -50%);
+}
+
+
+// .center-block {
+// 	// @include center;
+// 	@include transition(all, 1s, ease-in-out);
+// }
+//
+// .center-block:hover {
+// 	@include transform(scale(0.5,0.5));
+// 	@include transition(all, 1s, ease-in-out);
+// }
+
+/**
+* Vertical Align
+**/
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// exemple :
+//
+// .item p {
+//     @include vertical-align;
+// }
+
+/**
+* Pseudo
+**/
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// exemple :
+//
+// div::after {
+//     @include pseudo;
+//     height: 1em;
+//     top: 1em;
+//     left: 1em;
+//     width: 1em;
+// }

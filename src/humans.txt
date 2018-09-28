@@ -1,0 +1,19 @@
+# TEAM
+
+	Nicolas Chestier -- Nice guy & programmer -- chestier.nicolas@orange.fr -- nicolaschestier.fr
+
+# THANKS
+
+	All guys from technologies named right after ;D
+    humanstxt.org/
+    editorconfig
+    Emmet ❤
+
+ # TECHNOLOGY COLOPHON
+
+ 	ATOM
+ 	node, gulp and the tons of plugins (cf. package.json), git
+ 	html5
+ 	css3, sass,
+ 	javascript, jquery
+ 	Font icons librairies

@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Fonts
+$font-text: 				'Montserrat';
+$font-title: 				'Merriweather';
+$fontsPath: 				'../../assets/fonts/';
+$fa-font-path:          '../../assets/webfonts';
+
+/// Colors
+$primary-color:  		   #fafafa;
+$secondary-color: 		#e9ece5;
+$third-color:    			#b3c2bf;
+$fourth-color:   			#3b3a36;
+$error-color:    			#d33;
+$dark-grey-color:       #333333;
+$grey-color:            #484848;
+$magenta-color:         #BA2E8B;
+$blue-color:            #2BADFE;
+$white-color:           #fafafa;
+$black-color:           #000000;
+$red:                   #f50023;
+$green:                 #24b35d;
+$blue:                  #4D90FE;
+$overlay:               rgba(0,0,0,0.5);
+
+// social colours
+$twitter: #55acee;
+$facebook: #3b5998;
+$youtube: #bb0000;
+$pinterest: #cb2027;
+$linkedin: #007bb5;
+$instagram: #8a3ab9;
+
+
+// brand colours
+$brand-primary: #ff585d;
+$brand-secondary: #fe0;
+
+// greyscale
+$black: #1a1a1a;
+$grey-dark: #444;
+$grey: #888;
+$grey-light: #ddd;
+$grey-x-light: #fafafa;
+$white: #fff;
+
+// breakpoints responsive
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'mobile-only': ( max-width:      480px),
+  'phone' :      ( min-width:      480px),
+  'tablet':  	  ( min-width:  	  768px ),
+  'laptop': 	  ( min-width:  	  1024px ),
+  'desktop':     ( min-width: 	  1440px )
+) !default;

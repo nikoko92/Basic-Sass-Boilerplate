@@ -1,0 +1,228 @@
+
+//// Native elements
+*, *:before, *:after {
+	box-sizing: border-box;
+	outline: 0;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: $primary-color; // inline in templates/_html-header.pug in order to rpevent bg color flash
+	color: $fourth-color;
+	font-family: $font-text, sans-serif;
+	font-size: 1em; /* base font-size is equivalent "16px" */
+	hyphens: auto;
+	overflow: auto;
+}
+
+// titles
+h1, h2, h3, h4, h5, h6 {
+	color: $fourth-color;
+	font-family: $font-title, serif;
+	letter-spacing: .1em;
+	text-shadow: 1px 2px $secondary-color;
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		font-size: 4em - $i * .4;
+	}
+}
+
+ul {
+	padding-left: 15px;
+}
+
+li {
+	padding: 0 0 10px;
+}
+
+ul li {
+	list-style: none;
+}
+
+
+// links
+a {
+	color: $third-color;
+
+	&:visited {
+		color: darken($white-color, 10%);
+	}
+
+	&:active,
+	&:hover {
+		color: $fourth-color;
+	}
+
+	&.active {
+		color: $fourth-color;
+	}
+}
+
+em {
+	color: lighten($fourth-color, 10%);
+}
+
+// forms
+fieldset {
+
+	td {
+		display: inline-block;
+		padding: 5px;
+
+		@include responsive(desktop) {
+			display: table-cell;
+		}
+	}
+}
+
+// separator
+hr {
+	background-color: $third-color;
+	border: 0;
+	border-bottom: 1px solid $secondary-color;
+	margin: 2em 0;
+	height: 1px;
+}
+
+// images
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+legend {
+	padding: 0 .5em;
+	margin: 0 1em;
+}
+
+p {
+	line-height: 1.4em;
+	word-break: break-word;
+}
+
+strong {
+	color: lighten($fourth-color, 10%);
+}
+
+.hyphenate {
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+.overlay {
+	color: $overlay;
+}
+
+/* Icon */
+
+.icon {
+	text-decoration: none;
+	border-bottom: none;
+	position: relative;
+}
+
+.icon:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none !important;
+}
+
+/* Alignment */
+
+.align-center {
+	text-align: center;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-justify {
+	text-align: justify;
+}
+
+.float-left {
+	float:left;
+	margin:0 auto;
+}
+
+.float-right {
+	float:right;
+	margin:0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

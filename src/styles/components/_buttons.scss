@@ -1,0 +1,68 @@
+/* BUTTON */
+.btn {
+  background: rgba(61, 201, 179, 1);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.2);
+  color:#000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  user-select: none;
+  border: 1px solid #fafafa;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+  color:#fff;
+}
+.small-btn {padding: 6px 12px;}
+.regular-btn {padding: 10px 18px;}
+.big-btn {padding: 12px 24px;}
+
+.arrows {
+  position: absolute;
+  font-size:4rem;
+  top:90%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrows .fa {
+  color:#fafafa;
+}
+
+/*** scroll-to-top button ***/
+
+.scroll-to-top {
+  border-radius: .25em;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  display: none;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: $white-color;
+  background: fade-out($grey-color, .5);
+  line-height: 50px;
+  &:focus,
+  &:hover {
+    color: white;
+  }
+  &:hover {
+    background: $grey-color;
+  }
+  i {
+    font-weight: 800;
+  }
+  &.scroll-to-top .fas {
+    color:#fff;
+  }
+}

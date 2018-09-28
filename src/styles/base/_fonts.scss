@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// Fonts imports related stylesheet.
+// -----------------------------------------------------------------------------
+
+/// Includes
+
+@include font-face($font-title, $fontsPath + '/' + $font-title + '/' + $font-title + '-BoldItalic', $exts: 'ttf');
+
+@include font-face($font-text, $fontsPath + '/' + $font-text + '/' + $font-text + '-Light', $exts: 'ttf');
+@include font-face($font-text, $fontsPath + '/' + $font-text + '/' + $font-text + '-LightItalic', null, italic, $exts: 'ttf');
+@include font-face($font-text, $fontsPath + '/' + $font-text + '/' + $font-text + '-Medium', bold, $exts: 'ttf');
